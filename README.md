@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Na Feng Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the source code for Na Feng's portfolio website, showcasing course work and projects. The website is built using React and packaged with Docker for easy deployment and execution.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before you begin, ensure you have the following installed on your system:
 
-### `npm start`
+- Docker
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To get the web application running locally on your machine, follow these steps.
 
-### `npm test`
+### Clone the Repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+First, clone the repository to your local machine:
 
-### `npm run build`
+```bash
+git clone https://github.com/nfeng037/coding_assignment14
+cd coding_assignment14
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Build the Docker Image
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+From within the project directory, build the Docker image using the following command:
 
-### `npm run eject`
+```bash
+docker build -t na_feng_portfolio .
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This command builds a Docker image named `na_feng_portfolio` based on the instructions in the `Dockerfile`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Run the Container
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Once the image is built, you can run the container using:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+docker run -d -p 5575:5575 --name na_feng_portfolio_container na_feng_portfolio
+```
 
-## Learn More
+This command starts a container named `na_feng_portfolio_container`, maps port 5575 on your host to port 5575 on the container, and runs in detached mode.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Access the Application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The portfolio website should now be accessible at `http://localhost:5575`.
 
-### Code Splitting
+## Stopping the Container
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To stop and remove the container when you're done, use:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+docker stop na_feng_portfolio_container && docker rm na_feng_portfolio_container
+```
