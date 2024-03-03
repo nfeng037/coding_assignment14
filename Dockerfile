@@ -2,7 +2,7 @@
 FROM node:latest
 
 # Set the working directory in the container
-WORKDIR /na_feng_portfolio
+WORKDIR /na_feng_final_site
 
 # Copy the package.json file and package-lock.json file
 COPY package*.json ./
