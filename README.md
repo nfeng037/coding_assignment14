@@ -17,8 +17,8 @@ To get the web application running locally on your machine, follow these steps.
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/nfeng037/coding_assignment14
-cd coding_assignment14
+git clone https://github.com/nfeng037/react-portfolio
+cd react-portfolio
 ```
 
 
